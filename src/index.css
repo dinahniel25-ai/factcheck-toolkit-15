@@ -1,0 +1,240 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Detective Toolkit Design System - Dark Command Center Theme */
+
+@layer base {
+  :root {
+    /* Base detective theme colors */
+    --background: 220 26% 8%;
+    --foreground: 190 20% 95%;
+
+    /* Command center surfaces */
+    --card: 220 24% 12%;
+    --card-foreground: 190 20% 95%;
+
+    --popover: 220 24% 10%;
+    --popover-foreground: 190 20% 95%;
+
+    /* Detective gold accent */
+    --primary: 45 95% 55%;
+    --primary-foreground: 220 26% 8%;
+
+    /* Teal investigation highlights */
+    --secondary: 175 70% 45%;
+    --secondary-foreground: 220 26% 8%;
+
+    /* Muted command panel */
+    --muted: 220 24% 15%;
+    --muted-foreground: 190 15% 70%;
+
+    /* Evidence verification accent */
+    --accent: 175 60% 35%;
+    --accent-foreground: 190 20% 95%;
+
+    /* Alert/danger indicators */
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 190 20% 95%;
+
+    /* Interface borders and inputs */
+    --border: 220 20% 20%;
+    --input: 220 20% 18%;
+    --ring: 45 95% 55%;
+
+    /* Success indicator */
+    --success: 142 76% 36%;
+    --success-foreground: 190 20% 95%;
+
+    /* Investigation progress */
+    --progress: 175 70% 45%;
+    --progress-foreground: 220 26% 8%;
+
+    /* Detective gold glow */
+    --gold-glow: 45 100% 60%;
+    --teal-glow: 175 80% 50%;
+    --blue-glow: 220 70% 60%;
+
+    /* Gradients */
+    --gradient-detective: linear-gradient(135deg, hsl(220 26% 8%), hsl(220 24% 12%));
+    --gradient-gold: linear-gradient(135deg, hsl(45 95% 55%), hsl(45 85% 65%));
+    --gradient-teal: linear-gradient(135deg, hsl(175 70% 45%), hsl(175 60% 55%));
+    --gradient-investigation: linear-gradient(90deg, hsl(175 70% 45%), hsl(45 95% 55%));
+
+    /* Shadows and glows */
+    --shadow-detective: 0 10px 30px -10px hsl(220 26% 4% / 0.5);
+    --shadow-gold: 0 0 30px hsl(45 95% 55% / 0.3);
+    --shadow-teal: 0 0 20px hsl(175 70% 45% / 0.4);
+    --shadow-blue: 0 0 25px hsl(220 70% 60% / 0.3);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Detective Command Center Animations */
+  .glow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+  
+  .glow-teal {
+    box-shadow: var(--shadow-teal);
+  }
+  
+  .glow-blue {
+    box-shadow: var(--shadow-blue);
+  }
+
+  .detective-gradient {
+    background: var(--gradient-detective);
+  }
+
+  .gold-gradient {
+    background: var(--gradient-gold);
+  }
+
+  .teal-gradient {
+    background: var(--gradient-teal);
+  }
+
+  .investigation-gradient {
+    background: var(--gradient-investigation);
+  }
+
+  /* Pulse animations for CTAs */
+  .pulse-gold {
+    animation: pulse-gold 2s infinite;
+  }
+
+  @keyframes pulse-gold {
+    0%, 100% {
+      box-shadow: 0 0 0 0 hsl(var(--gold-glow) / 0.7);
+    }
+    50% {
+      box-shadow: 0 0 0 20px hsl(var(--gold-glow) / 0);
+    }
+  }
+
+  /* Scanning animation for detective elements */
+  .scan-line {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scan-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--teal-glow) / 0.3),
+      transparent
+    );
+    animation: scan 3s infinite;
+  }
+
+  @keyframes scan {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+
+  /* Interactive hover effects */
+  .detective-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .detective-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-detective), var(--shadow-gold);
+  }
+
+  /* Badge animation */
+  .badge-spin {
+    animation: badge-rotate 10s linear infinite;
+  }
+
+  @keyframes badge-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* Evidence completion checkmark */
+  .checkmark {
+    animation: checkmark 0.6s ease-in-out;
+  }
+
+  @keyframes checkmark {
+    0% { transform: scale(0) rotate(45deg); }
+    50% { transform: scale(1.2) rotate(45deg); }
+    100% { transform: scale(1) rotate(45deg); }
+  }
+}
